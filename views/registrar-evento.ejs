@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinU - Resgistro Evento</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+    crossorigin=""></script>
+
+    <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+
+    <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
+    <link rel="icon" href="/images/logo-icon.png">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/map-caixa.css">
+    <link rel="stylesheet" href="/css/page-registro-evento.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+        </style>
+</head>
+<body>
+    <div id="page-registro-evento">
+        <aside class="animate-down sidebar"> 
+            <img src="/images/logo-icon.svg" alt="PinU">
+            <footer>
+                <button onclick="history.back()">
+                    <img src ="/images/Arrowarrow.svg" alt="Voltar">
+                </button>
+            </footer>
+        </aside>
+        <main class="animate-appear with-sidebar">
+            <form method="POST" action="/registrar-evento/save">
+                <fieldset>
+                    <legend>Dados Basicos</legend>
+
+                    <div class="input-block">
+                        <label for="titulo">Titulo Evento</label>
+                        <input id="titulo" type="text" name="titulo" required>
+                    </div>
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <input type = "hidden" name="latitude">
+                        <input type = "hidden" name="longitude">
+                        <footer>
+                            <a href="#" id="select-point">Selecione o endereço no mapa</a>
+                        </footer>
+                    </div>
+                    <div class="input-block">
+                        <label for="about">Descrição do Evento</label>
+                        <textarea id="descricao" name="descricao" required></textarea>
+                    </div>
+                    <div class="input-block">
+                        <label>Categoria</label>
+                        <select name="categoriumId" class="form-control">
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.id %>"><%= categoria.nome %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+
+
+                    <div class="input-block">
+                        <label for="time">Data e Hora do Evento</label>
+                        <input type="datetime-local" id="data_hora" name="data_hora" required>
+                    </div>
+                        <button type="submit" class="primary-button">Cadastrar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+    </div>
+    <script src="/scripts/page-registro-evento.js"></script>
+</body>
+</html>

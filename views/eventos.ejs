@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinU - Mapa Eventos</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+    crossorigin=""></script>
+
+
+    <link rel="icon" href="/images/logo-icon.png">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/page-events.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+    </style>
+</head>
+<body>
+
+
+    <div id="page-events">
+        <nav class="animate-down"> 
+            <header>
+                
+                <img src="/images/logo-icon.svg" alt="Pin U">
+             </header>
+
+             <h2>Filtre pelo tipo de evento</h2>
+        </nav>
+
+        <div id="map" class="animate-appear">
+            <div class="eventos">
+                <% eventos.forEach((evento) => { %>
+                    <span hidden
+                        data-id="<%= evento.id %>"
+                        data-titulo="<%= evento.titulo %>"
+                        data-lat="<%= evento.latitude %>"
+                        data-lng="<%= evento.longitude %>"
+                    ></span>
+                <% }) %>
+            </div>
+        
+            <a href="/registrar-evento" class="create-event" title="Criar um evento">
+                <img src ="/images/Unionplus.svg" alt="Criar">
+            </a>
+        </div>
+    </div>
+    <script src="/scripts/page-events.js"></script>
+ 
+</body>
+</html>

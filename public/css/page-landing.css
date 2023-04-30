@@ -1,0 +1,103 @@
+
+#page-landing{
+    background: linear-gradient(329.54deg, #9804F2 0%, #D7A1F9 100%)no-repeat;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+} 
+#container{
+    margin: auto;
+    width: min(85%, 1120rem);
+
+}
+
+.location, h1, .visit p {
+    height: 16vh;
+
+}
+
+.visit a {
+    width: 8rem;
+    height: 8rem;
+    background: #F2BD2B;
+    border:none;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+
+    transition: background .2s;
+
+}
+.visit a:hover{
+    background: #FFE397;
+}
+
+#logo {
+    animation-delay:50ms;
+}
+.location {
+    animation-delay:100ms;
+}
+main h1 {
+    animation-delay:150ms;
+    font-size: clamp(4rem, 8vw, 8.4rem);
+}
+.visit p {
+    animation-delay:200ms;
+}
+.visit a {
+    animation-delay:250ms;
+}
+
+/*desktop*/
+@media/*parenteses serve como if*/(min-width:760px){
+    #container{
+        padding:5rem 2rem;
+        background: url("../images/chub.svg")no-repeat 15% / clamp(30rem, 54vw, 56rem);
+        
+    }
+    header{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    .location, h1, .visit p{
+        height: initial;
+        text-align: initial;
+    }
+    .location{
+        text-align:left;
+        font-size: 2.1rem;
+        line-height:1.5;
+    }
+
+    main h1{
+        font-weight:bold;
+        line-height: .88;
+        margin: clamp(10%, 9vh, 12%) 60% 0;
+        width: min(450px, 80%)
+    }
+
+    .visit{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin:initial;
+    }
+
+    .visit p{
+        font-size: 2.1rem;
+        line-height: 1.7;
+        width: clamp(20rem, 20vw, 30rem);
+        margin-left: 60%;
+    
+    }
+
+    .visit a{
+        margin: initial;
+       
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinU - Evento</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+    integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+    crossorigin=""></script>
+
+    <link rel="icon" href="/images/logo-icon.png">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/map-caixa.css">
+    <link rel="stylesheet" href="/css/page-evento.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+        </style>
+</head>
+<body>
+    <div id="page-evento">
+        <aside class="animate-down sidebar"> 
+            <img src="/images/logo-icon.svg" alt="PinU">
+            <footer>
+                <button onclick="history.back()">
+                    <img src ="/images/Arrowarrow.svg" alt="Voltar">
+                </button>
+            </footer>
+        </aside>
+        <main class="animate-appear with-sidebar">
+            <div class="evento-details">
+                <img src ="/images/🦆 illustration _store location shop_logo.png" alt="Evento foto"> 
+
+                <div class="evento-details-content">
+                    <h1><%= evento.titulo %></h1>
+
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <footer>
+                            <a href="https://maps.google.com/?q=<%= evento.latitude %>,<%= evento.longitude %>" target="_blank">Ver rotas no Google Maps</a>
+                        </footer>
+                    </div>
+                    <hr>
+                    <h2>Detalhes do evento</h2>
+                    <p><%= evento.descricao %></p>
+
+                    <div class="open-details">
+                        <div class="day-hour">
+                            <img src="/images/Clock.svg" alt="Datas e Horários">
+                            <%= evento.data_hora %>
+                        </div>
+                        <div class="gratuidade">
+                            <img src="/images/Alertapago.svg" alt="Gratuidade">
+                            Gratuito
+                        </div>
+                    </div>
+                   <button class="primary-button" type="button">
+                    Confirmar presença
+                   </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/scripts/page-evento.js"></script>
+</body>
+</html>
